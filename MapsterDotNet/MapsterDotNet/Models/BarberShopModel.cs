@@ -1,7 +1,6 @@
 ﻿using Mapster;
 using MapsterDotNet.Entities;
 using System.Globalization;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace MapsterDotNet.Models
 {
@@ -10,6 +9,12 @@ namespace MapsterDotNet.Models
         public string Company { get; set; }
         public string CNPJ { get; set; }
         public Address? Address { get; set; }
+
+        public DateTime CreatedOn = DateTime.UtcNow;
+
+        public DateTime UpdatedOn = DateTime.UtcNow;
+
+        public bool Active = true;
     }
 
     public class BarberShopResultModel : IRegister
@@ -39,8 +44,7 @@ namespace MapsterDotNet.Models
         private static string ConvertToTitleCase(string titleCase)
         {
             var textInfo = new CultureInfo("en-US",false).TextInfo;
-            string title = "";
-            title = textInfo.ToTitleCase(titleCase);
+            var title = textInfo.ToTitleCase(titleCase);
             titleCase = title;
             return titleCase;
         }

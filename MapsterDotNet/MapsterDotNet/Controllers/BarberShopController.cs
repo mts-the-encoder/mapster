@@ -34,6 +34,7 @@ namespace MapsterDotNet.Controllers
         {
             var barberShops = await _context
                 .BarberShops
+                .ProjectToType<BarberShopModel>()
                 .ToListAsync();
 
             return Ok(barberShops);

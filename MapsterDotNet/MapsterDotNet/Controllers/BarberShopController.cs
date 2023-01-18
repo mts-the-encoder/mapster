@@ -25,6 +25,7 @@ namespace MapsterDotNet.Controllers
             _context.Add(barberShop);
 
             await _context.SaveChangesAsync();
+
             return Ok(barberShop);
         }
 
@@ -44,7 +45,7 @@ namespace MapsterDotNet.Controllers
             var response = await _context
                 .BarberShops
                 .Where(x => x.Id == id)
-                .ProjectToType<BarberShopModel>()
+                .ProjectToType<BarberShopResultModel>()
                 .ToListAsync();
 
             return Ok(response);

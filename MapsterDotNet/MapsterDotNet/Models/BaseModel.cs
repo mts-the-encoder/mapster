@@ -22,9 +22,7 @@ namespace MapsterDotNet.Models
         }
 
         protected virtual void AddCustomMappings()
-        {
-
-        }
+        { }
 
         private TypeAdapterConfig Config { get; set; }
 
